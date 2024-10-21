@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>R Chatbot Interface</title>
+    <!-- Add Prism CSS -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/themes/prism.min.css" rel="stylesheet" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/plugins/line-numbers/prism-line-numbers.min.css" rel="stylesheet" />
+    <!-- Add Roboto font -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            font-family: Arial, sans-serif;
+        }
+        #chat-container {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            width: 500px;
+            height: 600px;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        #chat-header {
+            background-color: #2596be;
+            color: white;
+            padding: 10px;
+            text-align: center;
+        }
+        #chat-title {
+            margin: 0;
+            font-size: 18px;
+            font-family: 'Roboto', sans-serif;
+            font-weight: 700;
+        }
+        #chat-subtitle {
+            margin: 5px 0 0;
+            font-size: 12px;
+            font-style: italic;
+            font-family: 'Roboto', sans-serif;
+            font-weight: 400;
+        }
+        #chat-messages {
+            flex-grow: 1;
+            overflow-y: auto;
+            padding: 10px;
+            background-color: #f9f9f9;
+        }
+        #chat-form {
+            display: flex;
+            padding: 10px;
+            background-color: #fff;
+            border-top: 1px solid #eee;
+        }
+        #user-input {
+            flex-grow: 1;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+            padding: 5px;
+            margin-right: 5px;
+            transition: all 0.3s ease;
+        }
+        #user-input:focus {
+            outline: none;
+            border-color: #2596be;
+            box-shadow: 0 0 5px rgba(76, 175, 80, 0.5);
+        }
+        #send-button {
+            background: none;
+            border: none;
+            font-size: 24px;
+            cursor: pointer;
+            padding: 0 5px;
+            transition: transform 0.3s ease;
+        }
+        #send-button:hover {
+            transform: rotate(20deg);
+        }
+        .message {
+            margin-bottom: 10px;
+            padding: 5px 10px;
+            border-radius: 5px;
+            max-width: 80%;
+        }
+        .user {
+            background-color: #e1ffc7;
+            align-self: flex-end;
+            margin-left: auto;
+        }
+        .bot {
+            background-color: #fff;
+            align-self: flex-start;
+            margin-right: auto;
+        }
+        /* Add styles for code blocks */
+        pre[class*="language-"] {
+            margin: 10px 0;
+            padding: 10px;
+            border-radius: 5px;
+            max-width: 100%;
+            overflow-x: auto;
+        }
+    </style>
+</head>
+<body>
+    <div id="chat-container">
+        <div id="chat-header">
+            <h1 id="chat-title">NFL Analytics Coding Assistant</h1>
+            <p id="chat-subtitle">I've Read The Book, Let Me Help ...</p>
+        </div>
+        <div id="chat-messages"></div>
+        <form id="chat-form">
+            <input type="text" id="user-input" placeholder="Type your message...">
+            <button type="submit" id="send-button">🏈</button>
+        </form>
+    </div>
+    
+    <!-- Add Prism JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/components/prism-core.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/plugins/autoloader/prism-autoloader.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/plugins/line-numbers/prism-line-numbers.min.js"></script>
+    <script src="chatbot.js"></script>
+</body>
+</html>
